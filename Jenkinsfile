@@ -1,6 +1,6 @@
 node{
-    stage('vcs') {
-        git 'https://github.com/Rameshdutt80/game-of-life.git'
+    stage('SCM') {
+        git 'https://github.com/Rameshdutt80/gol.git'
     }
     
     stage('Build') {
