@@ -3,11 +3,11 @@ node{
         git 'https://github.com/Rameshdutt80/gol.git'
     }
     
-    stage('Build') {
-	withSonarQubeEnv('sonar') {
-        sh 'mvn package sonar:sonar'
-	}
-    }
+  stage('SonarQube analysis') {
+    withSonarQubeEnv('My SonarQube Server') {
+      sh 'mvn clean package sonar:sonar'
+    } // SonarQube taskId is automatically attached to the pipeline context
+  }
     
     stage('Testresult') {
         archiveArtifacts 'gameoflife-web/target/gameoflife.war'
